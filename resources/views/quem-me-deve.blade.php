@@ -88,7 +88,7 @@
                     <p class="text-sm font-medium leading-none text-white ">{{ $qmd->nome }}</p>
                 </td>
                 <td class="pl-12">
-                    <p class="text-sm font-medium leading-none text-white ">R${{ $qmd->valor }}</p>
+                    <p class="text-sm font-medium leading-none text-white ">R${{ money_format($qmd->valor) }}</p>
                 </td>
                 <td class="">
                     <form method="post" action="{{ route('quem-me-deve.concluido', $qmd->id) }}">
