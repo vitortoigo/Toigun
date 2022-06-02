@@ -185,7 +185,6 @@
                     </form>
                 </td>
             </tr>
-            <p>teste</p>
             @endforeach
         </tbody>
     </table>

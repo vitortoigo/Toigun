@@ -3,8 +3,8 @@
 
 @section('content')
 
-<div>
-    <p>Site para administraçãp</p>
+<div class="h-100 w-100 flex justify-center">
+    <img src="{{ secure_asset('images/gun.webp') }}" alt="" style="width: 57%;">
 </div>
 
 @endsection
