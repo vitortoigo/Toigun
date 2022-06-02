@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <title>@yield('title')</title>
 </head>
 
@@ -15,7 +15,7 @@
             <div class=" max-w-7xl mx-auto px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class=" flex items-center">
-                        <a class="flex-shrink-0" href="/">
+                        <a class="flex-shrink-0" href="{{ route('home') }}">
                             <svg class="h-9 w-9" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1280.000000pt" height="826.000000pt" viewBox="0 0 1280.000000 826.000000" preserveAspectRatio="xMidYMid meet">
 
                                 <g transform="translate(0.000000,826.000000) scale(0.100000,-0.100000)" fill="{{ Route::is('home') ? 'green' : 'white'  }}" stroke="none">
