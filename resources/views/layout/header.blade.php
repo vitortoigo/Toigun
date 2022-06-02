@@ -105,4 +105,4 @@
     </div>
 </header>
 
-<body class="h-auto flex flex-col">
+<body class="h-auto flex flex-col" style="min-height: 100vh">
