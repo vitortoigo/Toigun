@@ -105,4 +105,4 @@
     </div>
 </header>
 
-<body class="h-full flex flex-col">
+<body class="h-auto flex flex-col">
