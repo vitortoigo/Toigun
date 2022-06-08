@@ -45,4 +45,28 @@ class ServicoController extends Controller
         $servico->update(['concluido' => $request->concluido ? true : false]);
         return redirect()->route('servicos')->with('concluido', 'Serviço (Dono: '. $servico->dono .' , Modelo: '. $servico->modelo .') foi concluido!');
     }
+
+    public function edit($id, Request $request) {
+        $servico = Servico::find($id);
+        if ($request->isMethod('post'))
+        {
+            $validator = Validator::make($request->all(), [
+            'servico.modelo' => 'required',
+            'servico.marca' => 'required',
+            'servico.dono' => 'required',
+            'valor_receber' => 'required',
+            'valor_cobrar' => 'required'
+            ]);
+            
+            $servico->valor_receber = money_database($request->valor_receber);
+            $servico->valor_cobrar = money_database($request->valor_cobrar);
+            $servico->fill(request('servico'))->save();
+            return back();
+        }
+        if ($request->isMethod('get'))
+        {
+            return view('novo-servico-editar', ['servico' => $servico]);
+        }
+        
+    }
 }

@@ -18,13 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PrincipalController::class, 'index'])->name('home');
+Route::get('/home', [PrincipalController::class, 'index'])->name('home');
 
 Route::get('/servicos', [PageServicoController::class, 'index'])->name('servicos');
 
 Route::get('/novo-servico', [ServicoController::class, 'index'])->name('novo-servico')->middleware('auth');
 Route::post('/novo-servico/enviar', [ServicoController::class, 'store'])->name('novo-servico.enviar')->middleware('auth');
 Route::post('/servico/concluido-{id}', [ServicoController::class, 'concluded'])->name('servico.concluido')->middleware('auth');
+Route::match(['get', 'post'],'/servico/editar/{id?}', [ServicoController::class, 'edit'])->name('servico.editar')->middleware('auth');
 Route::delete('/servico/deletar-{id}', [ServicoController::class, 'delete'])->name('servico.delete')->middleware('auth');
 
 Route::get('/quem-eu-devo', [QuemEuDevoController::class, 'index'])->name('quem-eu-devo');
@@ -40,7 +41,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::get('/', function () {
+        return view('home');
     })->name('dashboard');
 });
