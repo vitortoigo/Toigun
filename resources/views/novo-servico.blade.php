@@ -4,9 +4,9 @@
 @section('content')
 
 <form method="post" action="{{ route('novo-servico.enviar') }}">
-    <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 dark:bg-gray-700 rounded-tl-lg rounded-tr-lg">
+    <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-700 rounded-tl-lg rounded-tr-lg">
         <div class="sm:flex items-center justify-between">
-            <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white">Cadastrar novo serviço</p>
+            <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-white">Cadastrar novo serviço</p>
             <div>
                 <button type="submit" class="focus:ring-2 focus:ring-offset-2 focus:ring-green-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-green-700 hover:bg-green-600 focus:outline-none rounded">
                     <p class="text-sm font-medium leading-none text-white">Cadastrar</p>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="bg-white dark:bg-gray-800  shadow px-4 md:px-10 py-12 md:pt-7 overflow-y-auto">
+    <div class="bg-gray-800  shadow px-4 md:px-10 py-12 md:pt-7 overflow-y-auto">
 
         @if($errors->any())
         <div class="alert alert-danger">
