@@ -1,29 +1,20 @@
-on: 
+name: Deploy Private GitHub repository to cPanel
+on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-      - name: Get the latest code
-        uses: actions/checkout@v2.3.2
-      - name: Copy .env
-        run: cp .env.example .env
-      - name: Install Dependencies
-        run: composer update
-      - name: Generate key
-        run: php artisan key:generate
-      - name: Generate storage link
-        run: php artisan storage:link
-      - name: Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.1
-        with:
-          server: ${{ secrets.ftp_host }}
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
-          server-dir: deploy_teste/
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: deploy_teste/
