@@ -15,9 +15,3 @@ env_variables:
 handlers:
   - url: /.*
     script: auto
-
-automatic_scaling:
-  target_cpu_utilization: 0.65
-  target_throughput: 100
-  min_instances: 1
-  max_instances: 10
