@@ -1,4 +1,4 @@
-runtime: php8
+runtime: php74
 
 env_variables:
   APP_ENV: production
