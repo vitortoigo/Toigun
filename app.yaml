@@ -1,0 +1,23 @@
+runtime: php81
+
+env_variables:
+  APP_ENV: production
+  APP_LEY: base64:Zx7KUKjOE2kviniugZ4ykLCk4zXZZRFer+jgylc9eTI=
+  APP_DEBUG: true
+  APP_URL: http://localhost
+  DB_CONNECTION: mysql
+  DB_HOST: 127.0.0.1
+  DB_PORT: 3306
+  DB_DATABASE: projeto
+  DB_USERNAME: root
+  DB_PASSWORD: 
+
+handlers:
+  - url: /.*
+    script: auto
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  target_throughput: 100
+  min_instances: 1
+  max_instances: 10
